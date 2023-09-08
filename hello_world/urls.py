@@ -24,6 +24,7 @@ urlpatterns = [
     path('image_upload', core_views.hotel_image_view, name='image_upload'),
     path('success', core_views.success, name='success'),
     path("admin/", admin.site.urls),
+    path('hotel_images', core_views.display_hotel_images, name = 'hotel_images'),
     path("__reload__/", include("django_browser_reload.urls")),
 ]
 

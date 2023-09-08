@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .forms import HotelForm
+from .models import Hotel
 
 def index(request):
     return HttpResponse("Hello world!")
@@ -20,3 +21,11 @@ def hotel_image_view(request):
  
 def success(request):
     return HttpResponse('successfully uploaded')
+
+def display_hotel_images(request):
+ 
+    if request.method == 'GET':
+ 
+        # getting all the objects of hotel.
+        Hotels = Hotel.objects.all()
+        return render(request, 'display_image.html', {'hotel_images': Hotels})
